@@ -1,0 +1,25 @@
+
+$logo-height: 40px;
+
+.header {
+  background-color: #000;
+  padding-block: 20px;
+}
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+  padding-top: calc( $logo-height * .35);
+}
+
+.logo {
+  height: $logo-height;
+  color: white;
+  position: relative;
+  top: calc( $logo-height * -.3);
+}
+
+.title {
+  color: #fff;
+  font-size: 1.4rem;
+}

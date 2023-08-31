@@ -18,10 +18,17 @@ module.exports = {
     liveReload: true,
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json', '.scss'],
+    alias: {
+      '~': path.resolve(__dirname, 'src/'),
+    },
   },
   module: {
     rules: [
+      {
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
@@ -31,6 +38,17 @@ module.exports = {
         test: /\.tsx?$/,
         exclude: /node_modules/,
         use: 'ts-loader',
+      },
+      {
+        test: /\.svg$/i,
+        type: 'asset',
+        resourceQuery: /url/, // *.svg?url
+      },
+      {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
+        use: ['@svgr/webpack'],
       },
     ],
   },

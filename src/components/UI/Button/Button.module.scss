@@ -1,0 +1,20 @@
+.button {
+  background: #000;
+  font-family: DIN_Bold, Roboto, sans-serif;
+  font-size: 1.3rem;
+  color: #fff;
+  padding: 1rem 2.4rem;
+  margin: 2px;
+  transition: color ease-out, background-color .25s ease-out, transform .2s ease;
+  -webkit-tap-highlight-color: initial;
+  border: none;
+  outline: 2px solid #000;
+  &:hover {
+    background: transparent;
+    color: #000;
+    cursor: pointer;
+  }
+  &:active {
+    transform: scale(.97);
+  }
+}

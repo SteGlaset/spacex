@@ -4,8 +4,12 @@
     "module": "commonjs",
     "jsx": "react",
     "outDir": "./dist",
+    "baseUrl": "src",
+    "paths":{
+      "~/*":["src/*"]
+    },
     "strict": true,
     "esModuleInterop": true
   },
-  "include": ["./src/**/*"]
+  "include": ["src", "./declarations.d.ts", "./src/**/*"]
 }

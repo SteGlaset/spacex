@@ -1,0 +1,46 @@
+@font-face {
+  font-family: DIN_Regular;
+  src: url(../assets/fonts/D-DIN.woff2) format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: DIN_Regular;
+  src: url(../assets/fonts/D-DIN-Bold.woff2) format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: DIN_Bold;
+  font-display: swap;
+  src: url(../assets/fonts/D-DIN-Bold.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Roboto"),local("Roboto-Regular"),url(../assets/fonts/roboto-v20-latin-ext_latin-regular.woff2) format("woff2");
+}
+
+
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local("Roboto Medium"),local("Roboto-Medium"),url(../assets/fonts/roboto-v27-latin-500.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local("Roboto Bold"),local("Roboto-Bold"),url(../assets/fonts/roboto-v20-latin-ext_latin-700.woff2) format("woff2");
+}
+
+

@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
+import useIntersectedRef from '../../hooks/useIntersectedRef';
 
 interface IntersectionObserverTriggerBoxProps {
   onIntersect: () => void;
@@ -7,29 +8,7 @@ interface IntersectionObserverTriggerBoxProps {
 const IntersectionObserverTriggerBox = ({
   onIntersect,
 }: IntersectionObserverTriggerBoxProps) => {
-  const boxRef = useRef(null);
-
-  const handleIntersection: IntersectionObserverCallback = (entries) => {
-    const [entry] = entries;
-    if (entry.isIntersecting) {
-      onIntersect();
-    }
-  };
-
-  const options = {
-    root: null,
-    rootMargin: '40%',
-    threshold: 0,
-  };
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(handleIntersection, options);
-    if (boxRef.current) observer.observe(boxRef.current);
-
-    return () => {
-      if (boxRef.current) observer.unobserve(boxRef.current);
-    };
-  }, [boxRef, options]);
+  const boxRef = useIntersectedRef(onIntersect);
 
   return <div ref={boxRef}></div>;
 };

@@ -26,9 +26,15 @@ export const payloadSlice = createSlice({
   name: 'payload',
   initialState,
   reducers: {
+    search: (state, action: PayloadAction<string>) => {
+      if (action.payload) {
+        state.query.$text = { $search: action.payload };
+      } else {
+        delete state.query.$text;
+      }
+    },
     sort: (state, action: PayloadAction<PayloadActionSort>) => {
       state.options.sort = action.payload;
-      state.options.page = 0;
     },
     setPage: (state, action: PayloadAction<number>) => {
       state.options.page = action.payload;
@@ -37,6 +43,6 @@ export const payloadSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { sort, setPage } = payloadSlice.actions;
+export const { search, sort, setPage } = payloadSlice.actions;
 
 export default payloadSlice.reducer;

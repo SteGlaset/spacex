@@ -4,21 +4,15 @@ import MissionItem from '../MissionItem/MissionItem';
 import { MissionDoc } from '../../types/missions';
 import Masonry from 'react-layout-masonry';
 import cl from './MissionList.module.scss';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import type { RootState } from '../../redux/store';
 import IntersectionObserverTriggerBox from '../IntersectionObserverTriggerBox/IntersectionObserverTriggerBox';
-import { setPage } from '../../redux/payload/payloadSlice';
+import useGetNextPage from '../../hooks/useGetNextPage';
 
 const MissionList = () => {
-  const page = useSelector((state: RootState) => state.payload.options.page);
-  const dispatch = useDispatch();
   const payload = useSelector((state: RootState) => state.payload);
-  const {
-    data: missions,
-    isLoading,
-    isError,
-    isFetching,
-  } = useGetMissionsQuery(payload);
+  const { data: missions, isLoading, isError } = useGetMissionsQuery(payload);
+  const getNextPage = useGetNextPage();
 
   if (isLoading) {
     return <div>Loading missions...</div>;
@@ -27,12 +21,6 @@ const MissionList = () => {
   if (isError) {
     return <div>Error fetching missions.</div>;
   }
-
-  const fetchNextPage = () => {
-    if (!isFetching) {
-      dispatch(setPage(page + 1));
-    }
-  };
 
   return (
     <Masonry
@@ -44,7 +32,9 @@ const MissionList = () => {
         missions.docs.map((doc: MissionDoc) => (
           <MissionItem key={doc.id} mission={doc} />
         ))}
-      <IntersectionObserverTriggerBox onIntersect={fetchNextPage} />
+      {missions?.docs.length && (
+        <IntersectionObserverTriggerBox onIntersect={getNextPage} />
+      )}
     </Masonry>
   );
 };

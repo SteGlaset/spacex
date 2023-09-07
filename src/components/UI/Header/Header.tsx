@@ -8,7 +8,6 @@ const Header = () => {
     <header className={cl.header}>
       <Container className={cl.headerContainer}>
         <Logo className={cl.logo} />
-        {/*<h1 className={cl.title}>Missions</h1>*/}
       </Container>
     </header>
   );

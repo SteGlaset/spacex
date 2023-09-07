@@ -1,0 +1,27 @@
+.searchInput {
+  border-radius: 0;
+  font-size: 19px;
+  padding: 1rem 1rem 1rem calc(30px + 1rem);
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.searchWrapper {
+  position: relative;
+}
+
+
+.searchIcon {
+  position: absolute;
+  height: 20px;
+  top: calc(50% - 10px);
+  left: 1rem;
+  transition: transform .2s ease;
+  &:hover {
+    cursor: pointer;
+  }
+  &:active {
+    transform: scale(.92);
+  }
+}

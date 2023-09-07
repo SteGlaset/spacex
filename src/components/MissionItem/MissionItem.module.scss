@@ -4,15 +4,8 @@
   gap: 5px;
   background-color: #000;
   color: #fff;
-  animation: cardFadeIn .6s ease-out both;
-  @keyframes cardFadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
+  transition: opacity .6s ease-out;
+  opacity: 1;
   &:hover {
     .missionCardImg {
       transform: scale(1.05);

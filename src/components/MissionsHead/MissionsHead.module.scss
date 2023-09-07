@@ -1,5 +1,6 @@
 .head {
   display: flex;
+  flex-wrap: wrap;
   margin-block: 18px;
   align-items: center;
 }
@@ -14,4 +15,7 @@
 }
 
 .rightBlock {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }

@@ -1,5 +1,8 @@
 export interface MissionPayload {
   query: {
+    $text?: {
+      $search?: string;
+    } | null;
     static_fire_date_utc: {
       $gte: string;
       $lte: string;
